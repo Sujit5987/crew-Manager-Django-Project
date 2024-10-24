@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+        }
+        .nav {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #3498db;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            margin-left: 320px;
+            background-image:linear-gradient(to right,#16222A,#3A6073);
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            box-shadow: 0 60px 150px rgba(0, 0, 0, 0.2);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color:#3498db;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="date"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="date"]:focus, input[type="file"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 0;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav"><center>Add Employee Details Here</center></div>
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data"> 
+            {% csrf_token %}
+                <div class="ename">
+                <label>Employee Name</label></div>
+                <div><input type="text" name="ename" class="text" placeholder=""></div>
+                
+                <label>Age</label>
+                <input type="text" class="text" name="eage" placeholder="">
+                <br>
+                <br>
+                <label>Date Of Birth</label>
+                <input type="date" name="edateofbirth" placeholder="">
+                <br>
+                <br>
+                <label>Education</label>
+                <input type="text" class="text" name="eeducation" placeholder="">
+                <br>
+                <br>
+                <label>Domain</label>
+                <input type="text" class="text" name="etype" placeholder="">
+                <br>
+                <br>
+                <label for="receipe_image">Image</label>
+                <input type="file" class="file" name="eimage" placeholder="">
+                <br>
+                <br>
+                <button class="button">SUBMIT</button>
+    
+            </center></div>
+        </form>
+    </div>
+</body>
+</html>
