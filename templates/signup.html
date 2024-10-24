@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    body
+    {
+        background:linear-gradient(890deg,#000,#f0f);
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        /*background-image:linear-gradient(to right,#141010,#f70776);*/
+        
+    }
+    h1
+    {
+        margin-left:-100px;
+        font-size:2rem;
+        filter: drop-shadow(50px 50px 50px #2e2e67);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .ll
+        {
+        width: 1220px;
+        height:520px;
+        display: flex;
+        border:1px solid red;
+        }
+    .container
+    {
+        margin-top: 1px;
+        margin-left:400px;
+        width: 400px;
+        height: 450px;
+        background:linear-gradient(720deg,#000,#f0f);
+        border-radius: 20px;
+        filter: drop-shadow(99px 99px 99px #2e2e67);
+        /*filter: drop-shadow(99px 99px 99px #2e2e67);*/
+    }
+    .submit
+    {
+        width: 300px;
+        height: 30px;
+        border:1px solid transparent;
+        background-color:blueviolet;
+        color: aliceblue;
+        border-radius: 10px;
+        margin-top: 30px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .image
+        {
+            margin-left:24px;
+            margin-top: 5px;
+            width:150px;
+            height:150px;
+            backdrop-filter:blur(450px);
+            border-radius:50%;
+            font-size:7.5rem;
+            color: black;
+        }
+        .text,.text2,.password
+        {
+            width:200px;
+            height: 30px;
+            border-bottom:0.5px solid gray;
+            background-color: transparent;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .have
+        {
+            color:darkcyan;
+        }
+        .have a
+        {
+            color: mediumaquamarine;
+            text-decoration: none;
+        }
+        .si
+        {
+            width:400px;
+            height: 60px;
+            margin-left:2px;
+            border:1px solid red;
+        }
+        .si a
+        {
+           text-decoration:none;
+           color: #6643b5;
+        }
+</style>
+</head>
+<body>
+    <h1><center>WELCOME TO SIGNUP PAGE</center></h1>
+    <div class="ll">
+        {% if messages %}
+        <div class="si">
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        </div>
+        {% endif %}
+    <div class="container"><center>
+    <form method="POST" enctype="multipart/form-data"> 
+        {% csrf_token %}
+            <!-----{% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}----->
+            <div class="image"><i class="fa-solid fa-user"></i></div>
+            <div><input type="text1" name="first_name" class="text" placeholder="Name"></div>
+            <div><input type="text" class="text2" name="username" placeholder="User_name"></div>
+            <div><input type="password" class="password" name="password" placeholder="password"></div>
+            <div class="have"><p>Already have an account?<a href="/login/">log in</a></p></div>
+            <button class="submit"><center>SUBMIT</center></button>
+        </form>
+        </center></div>
+    </div>
+</body>
+</html>
