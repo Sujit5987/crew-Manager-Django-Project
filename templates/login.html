@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body
+       {
+        /*background:linear-gradient(100deg,#000,#f0f);
+        background-image: radial-gradient( circle farthest-corner at 32.7% 82.7%,  rgba(173,0,171,1) 8.3%, rgba(15,51,92,1) 79.4% );*/
+        background-image:url("https://img.freepik.com/free-vector/blue-abstract-blurred-background_1034-594.jpg?ga=GA1.1.2013702587.1728642477&semt=ais_hybrid");
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+       }
+       h1
+       {
+           margin-left:-100px;
+           font-size:2rem;
+           filter: drop-shadow(50px 50px 50px #2e2e67);
+           font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+       }
+       .container
+       {
+           margin-top:70px;
+           margin-left:100px;
+           /*background:linear-gradient(100deg,#000,#f0f);*/
+           background-color: aliceblue;
+           width: 400px;
+           height: 350px;
+           border-bottom-left-radius:20px;
+           border-bottom-right-radius:20px;
+           filter: drop-shadow(99px 99px 99px #2e2e67);
+       }
+       .ll
+       {
+        width: 1220px;
+        height:520px;
+        display: flex;
+       }
+    .image
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left:2px;
+            margin-top:5px;
+            width:95px;
+            height:95px;
+            background-color:#6643b5;
+            backdrop-filter:blur(850px);
+            border-radius:50%;
+            font-size:3.5rem;
+            color:black;
+        }
+        .text
+        {
+            width:200px;
+            height: 30px;
+            border-bottom:0.5px solid gray;
+            background-color: transparent;
+            margin-top:10px;
+            border-radius: 10px;
+        }
+        .password
+        {
+            width:200px;
+            height: 30px;
+            border-bottom:0.5px solid gray;
+            background-color: transparent;
+            margin-top:20px;
+            border-radius: 10px;
+        }
+        .submit
+    {
+        width: 300px;
+        height: 30px;
+        border:1px solid transparent;
+        background-color:blueviolet;
+        color: aliceblue;
+        border-radius: 10px;
+        margin-top:30px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+        .line
+        {
+            width: 6px;
+            height:500px;
+            background-color: aliceblue;
+            margin-left:60px;
+            margin-top:5px;
+        }
+        .line2
+        {
+            width:500px;
+            height:300px;
+            background-color:transparent;
+            margin-left:60px;
+            margin-top:70px;
+        }
+        .land
+        {
+            width:500px;
+            height:60px;
+            margin-top:70px;
+            color:black;
+            font-size:2rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 500;
+        }
+        .land2
+        {
+            margin-left: 5px;
+            color:black;
+            font-size:2rem;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 500;
+        }
+        .land3
+        {
+            width: 400px;
+            height:300px;
+            color:black;
+            font-size:1rem;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 500;
+        }
+        .end
+        {
+            color:#222831;
+            font-size:2rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-style:bold;
+        }
+        .con
+        {
+            width: 400px;
+            height:60px;
+            color:black;
+            background-color: dodgerblue;
+            font-size:1rem;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 500;
+        }
+        .navbar
+        {
+            margin-top:0px;
+            width: 400px;
+            height: 60px;
+            font-size:2rem;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight:200;
+            color:firebrick;
+        }
+        .bt
+        {
+            background-color: deeppink;
+            border:0.5px solid transparent;
+            border-radius:4px;
+        }
+        .si a
+        {
+           text-decoration:none;
+           color: #6643b5;
+        }
+   </style>
+</head>
+<body>
+    <div class="navbar">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            <div class="si"><li><a href="signup/"><button class="bt">Sign Up Now</button></a></li></div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <div class="ll">
+    <div class="container"><center>
+        <div class="con"><center>Mangers Login</center></div>
+      <form method="POST" enctype="multipart/form-data"> 
+        {% csrf_token %}
+            <!----{% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}----->
+            <div class="image"><center><i class="fa-sharp fa-solid fa-user-lock"></i></center></div>
+            <div><input type="text" class="text" name="username" placeholder="username"></div>
+            <div><input type="password" class="password" name="password" placeholder="password"></div>
+            <button class="submit"><center>LOG IN</center></button>
+        </center></form>
+  </div>
+  <div class="line"></div>
+  <div class="line2">
+    <div class="land">Landing </div>
+    <div class="land2">Page </div>
+    <div class="land3">
+        <div class="land4">
+            <p>Hello welcome to our page.this page where in can find store employees data.you can store,add,update,
+                serch and delete crenditals.yes All in one .Enjoy your day mate.
+            </p>
+        </div>
+    </div>
+  </div>
+  </div>
+  <div class="end"><center>Welcome To Our Website </center></div>
+</body>
+</html>
