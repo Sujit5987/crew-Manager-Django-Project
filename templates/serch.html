@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body
+        {
+           background-image:linear-gradient(to right,#16222A,#3A6073);
+        }
+        .serch
+        {
+            width:400px;
+            height:200px;
+            border:1px solid gray;
+            margin-left:450px;
+            margin-top: 50px;
+            border-radius: 10px;
+           filter: drop-shadow(9px 99px 9px #2e2e67);
+        }
+        .ss
+        {
+            font-size:2rem;
+            width:100px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-display:initial;
+            height:30px;
+            background-color:midnightblue;
+            border-bottom-left-radius:5px;
+            border-bottom-right-radius:5px;
+            color: blanchedalmond;
+            margin-left: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .text
+        {
+            width:350px;
+            height:30px;
+            background:transparent;
+            border:1px solid gray;
+            margin-left:10px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        .submit
+        {
+            width:150px;
+            height:30px;
+            font-size:1.5rem;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin-left: 200px;
+            margin-top:76px;
+            margin-left:100px;
+            border:1px solid transparent;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: indigo;
+            color: darkslateblue;
+        }
+        .msg
+        {
+            width: 600px;
+            height: 380px;
+            border: 0.7px solid transparent;
+            border-radius: 5px;
+            color:#16222A;
+            margin-left: 350px;
+            margin-top:10px;
+            background-color: aliceblue;  
+        }
+        ms1
+        {
+            width: 600px;
+            height: 30px;
+            color:darkviolet;
+            font-size:1rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .msg:hover
+        {
+            transform: translatez(10px);
+            transition:2s;
+            cursor: pointer;
+        }
+        .name
+        {
+            margin-left: 30px;
+            width:200px;
+            height:30px;
+            top:200px;
+            font-size:1rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .age
+        {
+            width:200px;
+            height:30px;
+            margin-left: 300px;
+            margin-top: 50px;
+            top:10px;
+            font-size:1rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .edu
+        {
+            width:200px;
+            height:30px;
+            margin-left: 30px;
+            font-size:1rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+        }
+        .birth
+        {
+            width:300px;
+            height:30px;
+            margin-left: 300px;
+            margin-top:5px;
+            top:10px;
+            font-size:1rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .type
+        {
+            width:200px;
+            height:30px;
+            margin-left: 30px;
+            font-size:1rem;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+        }
+        .image
+        {
+            width:100px;
+            height:150px;
+            margin-left: 300px;
+            top:10px;
+        }
+        .tags
+        {
+            width: 800px;
+            height: 300px;
+            font-size: 1.5rem;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 200;
+            color: beige;
+            margin-left:350px;
+        }
+    </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="serch">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="ss"><center>search</center></div>
+        <div><input type="text" class="text" name="q" placeholder="Name"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <button class="submit">Search</button>
+    </form>
+    </div>
+    {% if employees %}
+    <div class="msg">
+        <div class="msg1"><center>Your Search Results Here</center></div>
+                {% for i in employees %}
+                <div class="msg2">
+                        <div class="name">Name : {{ i.ename }}</div>
+                        <div class="image"><img src="/media/{{i.eimage}}" width="200px" ></div>
+                        <div class="age">Age : {{ i.eage }}</div>
+                        <div class="edu">Qualification : {{ i.eeducation }}</div>
+                        <div class="birth">Date Of Birth : {{ i.edateofbirth }}</div>
+                        <div class="type">Domain : {{ i.etype }}</div>
+                </div>
+                {% endfor %}
+      {% endif %} 
+    </div>   
+    {% if messages %}
+        <div class="tags">
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+     </div>       
+</body>
+</html>
